@@ -1,4 +1,6 @@
-import ContenedorContactos from "./Components/ContenedorContactos/ContenedorContactos"
+
+import ContenedorContactos from"./Components/ContenedorContactos/ContenedorContactos"
+
 function App() {
   return (
     <>

@@ -2,7 +2,7 @@ import styles from './Card.module.css'
 import TabButton from '../TabButton/TabButton'
 import EliminarContactoButton from '../EliminarContactoButton/EliminarContactoButton'
 
-export default function Card({nombre,id,apellido,telefono,direccion,descripcion,imgUrl}){
+export default function Card({nombre,id,apellido,telefono,direccion,descripcion,imgUrl, onEliminar}){
 
     return(
         <div className={styles.card}>
@@ -19,7 +19,7 @@ export default function Card({nombre,id,apellido,telefono,direccion,descripcion,
 
                 <div className={styles.contenedorBotones}>
 
-                    <EliminarContactoButton id={`${id}`}/>
+                    <EliminarContactoButton id={`${id}`} onEliminar={() => onEliminar(id)}/>
 
                     <TabButton classNameAction={'Editar'}>Editar</TabButton>
                 </div>

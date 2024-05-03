@@ -1,9 +1,9 @@
 import eliminarContacto from '../../Datos/EliminarContacto'
 import TabButton from '../TabButton/TabButton'
 
-export default function EliminarContactoButton({id}){
+export default function EliminarContactoButton({id, onEliminar}){
 
     return <>
-            <TabButton classNameAction={'Eliminar'} setAction={() => eliminarContacto(`${id}`)}>Eliminar</TabButton>
+            <TabButton classNameAction={'Eliminar'} setAction={onEliminar}>Eliminar</TabButton>
     </>
 }
