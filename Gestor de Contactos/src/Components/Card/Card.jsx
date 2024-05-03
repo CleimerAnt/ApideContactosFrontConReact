@@ -5,6 +5,7 @@ import EliminarContactoButton from '../EliminarContactoButton/EliminarContactoBu
 export default function Card({nombre,id,apellido,telefono,direccion,descripcion,imgUrl, onEliminar}){
 
     return(
+        
         <div className={styles.card}>
             <div className={styles.contenedorImg}>
                 <img src={imgUrl}></img>
