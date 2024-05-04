@@ -7,7 +7,6 @@ import eliminarContacto from '../../Datos/EliminarContacto';
 export default function ContenedorContactos(){
     const {data, setData} = UseFetch('https://localhost:7076/api/v1/Contactos');
 
-    
         const handleEliminar = async (id) => {
         try {
             await eliminarContacto(id);
@@ -17,19 +16,15 @@ export default function ContenedorContactos(){
             console.error('Error al eliminar contacto', error);
         }
     };
-    const ContenedorCard = () =>{
-        return(
-            <div className={styles.contenedor__contactos}>
-            {data?.map((contacto) => (<>
-                <Card {...contacto} key={contacto.id} onEliminar={handleEliminar}/>
-            </>))}
-        </div>
-        )
-    }
+
     return (
-        <>
-        <ContenedorCard />
-        </>
+        
+        <div className={styles.contenedor__contactos} >
+            {data?.map((contacto) => (
+                <Card key={contacto.id} {...contacto} onEliminar={handleEliminar}/>
+            ))}
+        </div>
+    
         
         )
 }

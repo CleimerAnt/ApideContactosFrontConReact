@@ -14,6 +14,12 @@
     cursor: pointer;
     color: white;
     padding: 5px;
+    transition: background-color 0.3s;
+}
+
+.Editar a{
+    text-decoration: none;
+    color: white;
 }
 
 .agregar{

@@ -1,18 +1,55 @@
-import { json } from 'react-router'
+import { json, useParams } from 'react-router'
 import styles from './AgregarContactos.module.css'
 import {useForm} from 'react-hook-form'
 import PostContacto from '../../Datos/PostContacto'
+import GetById from '../../Datos/GetById'
+import { useEffect } from 'react'
+import updateResource from '../../Datos/PutContacto'
 
-export default function AgregarContacto(){
-    const {register, handleSubmit, formState:{errors}, watch, reset} = useForm()
+
+export default function AgregarContacto({isEditing}){
     const url =  'https://localhost:7076/api/v1/Contactos';
+
+    const {id} = useParams();
+
+    if(id !== null && id !== undefined){
+        isEditing = true;
+    }
+
+    const {register, handleSubmit, formState:{errors}, watch, reset} = useForm()
+    
+    if(isEditing === true)
+    {
+        const {datos} = GetById(url,id)
+        useEffect(() => {
+            if (datos) {
+                reset({
+                    nombre: datos.nombre,
+                    apellido: datos.apellido,
+                    telefono: datos.telefono,
+                    direccion: datos.direccion,
+                    descripcion: datos.descripcion,
+                    imgUrl: datos.imgUrl
+                });
+            }
+        }, [datos, reset]);
+    }
+
     const onSubmit = handleSubmit((data) => {
+        if(isEditing == true)
+        {
+        updateResource(id,data)
+        isEditing == false
+        reset()
+        }
+        else{
         PostContacto(url, data);
-    reset()
+        reset()
+        }
     })
+
     return <>
     <form onSubmit={onSubmit} className={styles.formulario}>
-
         <input type="text" placeholder='Nombre'
         {...register('nombre', {required:
             {

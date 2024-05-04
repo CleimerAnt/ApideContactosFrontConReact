@@ -31,7 +31,9 @@ function App() {
       <Routes>
         <Route path='/' element={<ContenedorContactos />}></Route>
         <Route path='/agregar-contacto' element={<AgregarContacto />}></Route>
+        <Route path='/agregar-contacto/:id' element={<AgregarContacto />}/>
         <Route path="*" element={<NotFound />}></Route>
+        
       </Routes>
     </>
   
