@@ -39,12 +39,12 @@ export default function AgregarContacto({isEditing}){
         if(isEditing == true)
         {
         updateResource(id,data)
-        isEditing == false
-        reset()
+        alert('Contacto Editado')
         }
         else{
         PostContacto(url, data);
         reset()
+        alert('Contacto Agregado')
         }
     })
 

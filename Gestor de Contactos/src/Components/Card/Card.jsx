@@ -4,7 +4,7 @@ import EliminarContactoButton from '../EliminarContactoButton/EliminarContactoBu
 import AgregarContacto from '../AgregarContactos/AgregarContactos'
 import { Link, NavLink } from 'react-router-dom'
 
-export default function Card({nombre,id,apellido,telefono,direccion,descripcion,imgUrl, onEliminar}){
+export default function Card({nombre,id,apellido,telefono,direccion,descripcion,imgUrl}){
 
     return(
         <div className={styles.card} >
@@ -21,7 +21,7 @@ export default function Card({nombre,id,apellido,telefono,direccion,descripcion,
 
                 <div className={styles.contenedorBotones}>
 
-                    <EliminarContactoButton id={`${id}`} onEliminar={() => onEliminar(id)}/>
+                    <NavLink className={styles.eliminarButton} to={`/EliminarContacto/${id}`}>Eliminar</NavLink>
                     <TabButton classNameAction={'Editar'}> <NavLink to={`/agregar-contacto/${id}`}>Editar Contacto</NavLink> </TabButton>
                     
                 </div>

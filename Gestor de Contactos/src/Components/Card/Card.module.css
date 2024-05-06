@@ -38,3 +38,11 @@
     gap: 20px;
     font-size: 15px;
 }
+
+.eliminarButton{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    background-color: red;
+    border-radius: 2px;
+}

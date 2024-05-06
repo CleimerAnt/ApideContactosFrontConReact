@@ -4,6 +4,7 @@ import AgregarContacto from "./Components/AgregarContactos/AgregarContactos"
 import NotFound from "./Components/NotFound/NotFound"
 import styles from './App.module.css'
 import TabButton from "./Components/TabButton/TabButton"
+import EliminarContactoButton from "./Components/EliminarContactoButton/EliminarContactoButton"
 
 function App() {
   function isActive(value){
@@ -32,6 +33,8 @@ function App() {
         <Route path='/' element={<ContenedorContactos />}></Route>
         <Route path='/agregar-contacto' element={<AgregarContacto />}></Route>
         <Route path='/agregar-contacto/:id' element={<AgregarContacto />}/>
+        <Route path='/EliminarContacto' element={<EliminarContactoButton/>} />
+        <Route path='/EliminarContacto/:id' element={<EliminarContactoButton/>} />
         <Route path="*" element={<NotFound />}></Route>
         
       </Routes>

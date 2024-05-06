@@ -14,9 +14,6 @@ function updateResource(id, data) {
         }
         throw new Error('Error al Hacer la Solicitud');
     })
-    .then(response => {
-        console.log('Success:', response); 
-    })
     .catch(error => {
         console.error('Error:', error);
     });
